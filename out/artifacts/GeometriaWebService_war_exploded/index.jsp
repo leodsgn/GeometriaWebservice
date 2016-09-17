@@ -15,14 +15,8 @@
 <div class="container">
     <div class="col-md-6">
         <form id="form_canvas">
-            <div class="form-group col-md-6">
-                <label for="x1">X</label>
                 <input type="number" class="form-control" id="x1" placeholder="X">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="y1">Y</label>
                 <input type="number" class="form-control" id="y1" placeholder="Y">
-            </div>
             <div class="col-md-12">
                 <button id="submit_canvas" type="submit" class="btn btn-success">Submit</button>
             </div>

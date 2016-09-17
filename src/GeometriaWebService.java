@@ -39,10 +39,11 @@ public class GeometriaWebService extends HttpServlet {
 
 		//Criar o vetor para receber as entradas (coordenadas)
 		Entrada[] vectEntradas = null;
-		
-		
+
+
 		//Transformar a requisição de Json para um vetor de entradas
 		Gson g = new Gson();
+
 		try{
 			String json = request.getParameter("request");
 			vectEntradas = g.fromJson(json,  Entrada[].class);
@@ -74,7 +75,31 @@ public class GeometriaWebService extends HttpServlet {
 	 * @return [Saida = o Webservice conheça a forma | null = o Web Service não conheça a forma Geométrica]
 	 */
 	public Saida execute(Entrada[] vectEntradas){
-		Saida saida = new Saida();
+
+		Saida saida = null;
+
+		if(vectEntradas.length == 4){
+			saida = new Saida();
+			double area;
+
+			int[] cord1 = vectEntradas[0].coord;
+			int[] cord2 = vectEntradas[1].coord;
+			int[] cord3 = vectEntradas[2].coord;
+			int[] cord4 = vectEntradas[3].coord;
+
+			int arestaX = cord2[1] - cord1[1];
+			int arestaY = cord3[0] - cord2[0];
+
+			if(arestaX == arestaY){
+
+
+				area = arestaX * arestaY;
+
+
+				saida.setArea(area);
+				saida.setNome("Quadrado");
+			}
+		}
 
 
 		/** 
